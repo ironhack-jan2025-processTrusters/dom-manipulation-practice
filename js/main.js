@@ -155,12 +155,11 @@ elm.addEventListener(typeOfEvent, code)
 */
 
 // 
-// Example 1: detect when user clicks on button-1
+// Example 1: detect when user clicks anywhere in the document
 // 
-const btn = document.getElementById("button-1");
 
-btn.addEventListener("click", () => {
-    console.log("user clicked in btn 1....")
+document.addEventListener("click", () => {
+    console.log("user clicked.......")
 });
 
 
@@ -170,7 +169,6 @@ btn.addEventListener("click", () => {
 //
 
 const btn2 = document.getElementById("button-2");
-
 
 btn2.addEventListener("click", () => {
     // step1: create the element:
@@ -183,3 +181,41 @@ btn2.addEventListener("click", () => {
     const parentElm = document.getElementById("box-2");
     parentElm.appendChild(newP);
 })
+
+
+
+//
+// Example 3: detect keyboard events
+//
+
+document.addEventListener("keydown", (event) => {
+    if (event.code === 'Space') {
+        console.log('user pressed SPACEBAR');
+    } else if (event.code === 'ArrowLeft') {
+        console.log('user pressed arrow LEFT....');
+    } else if (event.code === 'ArrowRight') {
+        console.log('user pressed arrow RIGHT....');
+    } else if (event.code === 'ArrowUp') {
+        console.log('user pressed arrow UP....');
+    } else if (event.code === 'ArrowDown') {
+        console.log('user pressed arrow DOWN....');
+    } else {
+        console.log('user pressed other key....');
+    }
+});
+
+
+
+//
+// Attach an event listener to multiple elements
+//
+
+const allBtn = document.querySelectorAll(".btn");
+
+allBtn.forEach((btnElm) => {
+    btnElm.addEventListener("click", () => {
+        console.log("user click on one of our COOL BUTTONS...")
+    });
+});
+
+
